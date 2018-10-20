@@ -1,0 +1,68 @@
+<html>
+    <head>
+		
+	
+<script src=”https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.4/jspdf.debug.js”></script>
+<script src=”https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js”></script>
+      <script src="https://www.gstatic.com/firebasejs/5.5.4/firebase-app.js"></script>
+  	  <script src="https://www.gstatic.com/firebasejs/5.5.4/firebase-firestore.js"></script>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+
+        <h1>Cloud Bank</h1>
+
+        <div class="content">
+			<div id="PDFcontent">
+            <form id="add-bank-form">
+              <ul>
+              <p>
+                <input type="text" name="name" placeholder="Name">
+              </p>
+                <p>
+                <input type="text" name="phone" placeholder="Phone">
+              </p>
+              <p>
+                <input type="text" name="account" placeholder="Acount">
+              </p>
+                  <p>
+                <input type="text" name="amount" placeholder="Amount">
+              </p>
+                    <p>
+                <input type="text" name="transaction" placeholder="Transaction e.g withdrawal / Deposit">
+              </p>
+				  
+              <p>
+                <input type="text" name="date" placeholder="Date">
+              </p>
+                <button>Go</button>
+				  
+				  </div>
+				  <p id="demo">
+				 <button id="cmx" onClick="myDownload()">Download</button>
+					  </p>
+              </ul>
+
+            </form>
+
+            <ul id="bank-list"></ul>
+
+        </div>
+
+        <script>
+        // Initialize Firebase
+        var config = {
+          apiKey: "AIzaSyBc1jgJgqTJ-QOmkf-MLHd6N0B-SsV7CIw",
+          authDomain: "bank-911f0.firebaseapp.com",
+          databaseURL: "https://bank-911f0.firebaseio.com",
+          projectId: "bank-911f0",
+          storageBucket: "bank-911f0.appspot.com",
+          messagingSenderId: "623291483447"
+        };
+            firebase.initializeApp(config);
+            const db = firebase.firestore();
+            db.settings({ timestampsInSnapshots: true });
+        </script>
+        <script src="app.js"></script>
+    </body>
+</html>
